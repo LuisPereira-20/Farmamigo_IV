@@ -6,7 +6,7 @@ apellido : /^[A-Za-z\s]{3,50}$/,
     contraseña : /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/
 }
 
-regex.name = new RegExp(regex.nombre, "i")
+regex.nombre = new RegExp(regex.nombre, "i")
 regex.apellido = new RegExp(regex.apellido, "i")
 regex.description = new RegExp(regex.descripcion, "i")
 regex.correo = new RegExp(regex.email, "i")
