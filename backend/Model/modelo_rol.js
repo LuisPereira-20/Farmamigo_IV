@@ -12,7 +12,7 @@ import mongoosePaginate from "mongoose-paginate-v2";
 import validacion from "../Tools/validacion.js";
 const Schema = mongoose.Schema;
 
-const rolSchema = new mongoose.Schema({
+const rolSchema = new Schema({
     nombre : {
         type : String,
         required : true,

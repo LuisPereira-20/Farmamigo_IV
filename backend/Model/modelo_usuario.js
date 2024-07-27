@@ -20,7 +20,7 @@ import mongoosePaginate from "mongoose-paginate-v2";
 import validacion from "../Tools/validacion.js";
 const Schema = mongoose.Schema;
 
-const usuarioSchema = new mongoose.Schema({
+const usuarioSchema = new Schema({
     nombre : {
         type : String,
         required : true,
