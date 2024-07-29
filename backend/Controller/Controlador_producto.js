@@ -5,9 +5,9 @@ import opciones from "../Tools/opciones.js";
 
 export const getProductos = async (req, res) => {
     try {
-    opciones.page = parseInt(req.query.page) || 1;
-    opciones.limit = parseInt(req.query.limit) || 12;
-    const Productos = await Productos.paginate({eliminado : false} , opciones);
+    opciones.page = numero(req.query.page) || 1;
+    opciones.limit = numero(req.query.limit) || 12;
+    const Productos = await producto.paginate({eliminado : false} , opciones);
     res.status(200).json(Productos);
 }  catch (error) {
     res.status(404).json({ error : error.message});
@@ -36,7 +36,7 @@ export const postProducto = async (req, res) => {
         if (!categoria_Existente){
             return res.status(404).json({ error : "La categoria no existe" });
         }
-        const producto = new producto(req.body);
+        const Producto= new producto(req.body);
         await producto.save();
         res.status(200).json(producto);} 
         catch (error) {
