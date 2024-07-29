@@ -1,5 +1,5 @@
 import producto from "../Model/modelo_producto.js";
-import categoria from "../Model/modelo_categoria.js";
+import Categorias from "../Model/modelo_categoria.js";
 import regex from "../Tools/validacion.js";
 import opciones from "../Tools/opciones.js";
 
@@ -53,7 +53,7 @@ export const editarProducto = async (req, res) => {
     if  (!regex.descripcion.test(req.body.descripcion)){
         return res.status(500).json({ error : "La descripcio no es valida" });
     }
-    const categoria_Existente = await categoria.findById(req.body.categoria);
+    const categoria_Existente = await Categorias.findById(req.body.categoria);
     if (!categoria_Existente){
         return res.status(404).json({ error : "La categoria no existe" });
     }
@@ -67,8 +67,8 @@ export const editarProducto = async (req, res) => {
 
 export const eliminarProducto = async (req, res) => {
     try {
-        const producto = await producto.findByIdAndUpdate({ _id : req.params.id, eliminado : false}, {eliminado : true, fechaEliminacion : Date.now()}, {new : true});
-        const producto_paginate = await Producto.paginate({id : req.params.id, eliminado : false}, opciones);
+        const Producto = await Producto.findByIdAndUpdate({ _id : req.params.id, eliminado : false}, {eliminado : true, fechaEliminacion : Date.now()}, {new : true});
+        const producto_paginate = await producto.paginate({id : req.params.id, eliminado : false}, opciones);
         res.status(200).json(producto_paginate);
     } catch (error) {
         res.status(404).json({ error : error.message});

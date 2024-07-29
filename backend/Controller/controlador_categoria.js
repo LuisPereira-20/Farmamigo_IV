@@ -1,13 +1,13 @@
 import regex from "../Tools/validacion";
 import opciones from "../Tools/opciones";
-import categoria from "../Model/modelo_categoria";
+import Categorias from "../Model/modelo_categoria";
 
 export const getCategorias = async (req, res) => {
     try {
         opciones.page = numero(req.query.page) || 1;
         opciones.limit = numero(req.query.limit) || 12;
-        const Categorias = await categoria.paginate({eliminado : false} , opciones);
-        res.status(200).json(Categorias);
+        const categoria = await Categorias.paginate({eliminado : false} , opciones);
+        res.status(200).json(categoria);
     } catch (error) {
         res.status(404).json({ error : error.message});
     }
@@ -15,7 +15,7 @@ export const getCategorias = async (req, res) => {
 
 export const getCategoria = async (req, res) => {
     try {
-    const categoria = await categoria.paginate({id : req.params.id, eliminado : false}, opciones);
+    const categoria = await Categorias.paginate({id : req.params.id, eliminado : false}, opciones);
     res.status(200).json(categoria);
 } catch (error) {
     res.status(404).json({ error : error.message});
@@ -27,8 +27,8 @@ export const postCategoria = async (req, res) => {
         if (!regex.nombre.test(req.body.nombre)){
             return res.status(500) .json({ error : "El nombre no es valido" });
         }
-        const Categoria = new categoria(req.body);
-        await categoria.save();
+        const Categoria = new Categorias(req.body);
+        await Categorias.save();
         res.status(200).json(Categoria);
     } catch (error) {
         res.status(404).json({ error : error.message});
