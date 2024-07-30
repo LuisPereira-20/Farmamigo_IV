@@ -1,6 +1,6 @@
-import regex from "../Tools/validacion";
-import opciones from "../Tools/opciones";
-import rol from "../Model/modelo_rol";
+import regex from "../Tools/validacion.js";
+import opciones from "../Tools/opciones.js";
+import rol from "../Model/modelo_rol.js";
 
 export const getRoles = async (req, res) => {
     try {
@@ -59,3 +59,4 @@ export const deleteRol = async (req, res) => {
         res.status(404).json({ error : error.message});
     }
 }
+ nnmmm

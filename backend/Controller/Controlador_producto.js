@@ -1,5 +1,5 @@
-import producto from "../Model/modelo_producto.js";
-import Categorias from "../Model/modelo_categoria.js";
+import producto from "../Model/Modelo_producto.js";
+import Categorias from "../Model/Modelo_categorias.js";
 import regex from "../Tools/validacion.js";
 import opciones from "../Tools/opciones.js";
 

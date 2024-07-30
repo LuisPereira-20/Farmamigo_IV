@@ -1,7 +1,7 @@
-import compra from "../Model/modelo_compra";
-import usuario from "../Model/modelo_usuario";
-import producto from "../Model/modelo_producto";
-import opciones from "../Tools/opciones";
+import compra from "../Model/Modelo_compra.js";
+import usuario from "../Model/modelo_usuario.js";
+import producto from "../Model/Modelo_producto.js";
+import opciones from "../Tools/opciones.js";
 
 export const getCompras = async (req, res) => {
     try {

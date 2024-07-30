@@ -1,6 +1,6 @@
-import regex from "../Tools/validacion";
-import opciones from "../Tools/opciones";
-import Categorias from "../Model/modelo_categoria";
+import regex from "../Tools/validacion.js";
+import opciones from "../Tools/opciones.js";
+import Categorias from "../Model/Modelo_categorias.js";
 
 export const getCategorias = async (req, res) => {
     try {

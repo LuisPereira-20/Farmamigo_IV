@@ -1,7 +1,6 @@
 import { Router } from "express";
 const router = Router();
-
-import { getCompras, getComprasId, postCompras, editarCompras, borrarCompras} from "../Controller/Controlador_producto.js";
+import { getCompras, getComprasId, postCompras, editarCompras, borrarCompras} from "../Controller/controlador_compra.js";
 
 router.get("/compras",  getCompras);
 router.get("/compras/:id",  getComprasId);
