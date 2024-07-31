@@ -21,7 +21,9 @@ const compraSchema = new Schema({
         required : true
     },
     productos : {
-        type : Array
+        type : [Schema.Types.ObjectId], 
+        ref : 'Producto', 
+        required : true
     },
     total : {
         type : Number,
@@ -48,8 +50,8 @@ const compraSchema = new Schema({
 
 compraSchema.plugin(mongoosePaginate);
 
-compraSchema.paginate().then({});
-
 const Compra = mongoose.model("Compra", compraSchema);
+
+Compra.paginate().then({});
 
 export default Compra;

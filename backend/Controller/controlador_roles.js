@@ -59,4 +59,3 @@ export const deleteRol = async (req, res) => {
         res.status(404).json({ error : error.message});
     }
 }
- nnmmm
